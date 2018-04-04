@@ -23,6 +23,7 @@ but can be used for other purposes as well, where a standardize theme
 shape can help with interoperability.
 
 ```js
+// TK
 Theme {
   space: NumberOrStringArray,
   fontSizes: NumberOrStringArray,
