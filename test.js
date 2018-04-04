@@ -1,15 +1,21 @@
 import test from 'ava'
 import thema, {
   validate,
+  validateSync,
   isValid
-} from '.'
+} from './index'
 
-test('returns a boolean', t => {
+test('isValid returns a boolean', t => {
   const a = isValid({})
   t.is(a, true)
 })
 
-test('validates space', t => {
+test('validate returns an object', t => {
+  const a = validate({})
+  t.is(typeof a, 'object')
+})
+
+test('isValid checks if theme is valid', t => {
   const a = isValid({
     space: [ 0, 4, 8, 16, 32 ]
   })
@@ -25,4 +31,12 @@ test('invalidates space', t => {
     ]
   })
   t.is(a, false)
+})
+
+test('validate returns a errors for invalid themes', t => {
+  t.throws(() => {
+    validateSync({
+      space: [ {} ]
+    })
+  })
 })

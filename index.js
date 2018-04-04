@@ -7,7 +7,7 @@ export const numberOrStringArray = yup.array().of(
   )
 )
 
-export const numberStringArrayOrObject = yup.mixed().concat(
+export const numberStringObject = yup.mixed().concat(
   numberOrStringArray,
   yup.object()
 )
@@ -23,17 +23,17 @@ export const complex = yup.object()
 
 export const space = numberOrStringArray
 export const fontSizes = numberOrStringArray
-export const lineHeights = numberStringArrayOrObject
-export const fontWeights = numberStringArrayOrObject
-export const letterSpacings = numberStringArrayOrObject
+export const lineHeights = numberStringObject
+export const fontWeights = numberStringObject
+export const letterSpacings = numberStringObject
 export const colors = yup.object()
-export const maxWidths = numberStringArrayOrObject
-export const minWidths = numberStringArrayOrObject
-export const heights = numberStringArrayOrObject
-export const maxHeights = numberStringArrayOrObject
-export const minHeights = numberStringArrayOrObject
+export const maxWidths = numberStringObject
+export const minWidths = numberStringObject
+export const heights = numberStringObject
+export const maxHeights = numberStringObject
+export const minHeights = numberStringObject
 
-export const radii = numberStringArrayOrObject
+export const radii = numberStringObject
 export const borders = arrayOrObject
 export const shadows = arrayOrObject
 
@@ -62,6 +62,7 @@ export const thema = yup.object().shape({
 })
 
 export const isValid = theme => thema.isValidSync(theme)
-export const validate = theme => thema.validateSync(theme)
+export const validate = theme => thema.validate(theme)
+export const validateSync = theme => thema.validateSync(theme)
 
 export default validate

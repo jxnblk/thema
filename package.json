@@ -5,7 +5,8 @@
   "main": "dist.js",
   "scripts": {
     "prepublish": "babel index.js -o dist.js",
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "cover": "nyc report --reporter=html"
   },
   "keywords": [],
   "author": "Brent Jackson",
